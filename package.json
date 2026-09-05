@@ -1,0 +1,32 @@
+{
+  "name": "projectmentor-ai",
+  "version": "1.0.0",
+  "description": "AI-powered platform for final-year students that generates practical, personalized project ideas, blueprints, skill gaps, roadmaps, reality checks, and multi-dimensional improvements.",
+  "main": "server/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js",
+    "test": "node --test tests/**/*.test.js"
+  },
+  "keywords": [
+    "ai",
+    "gemini",
+    "hackathon",
+    "final-year-project",
+    "student-mentor",
+    "project-blueprint",
+    "skill-gap",
+    "roadmap"
+  ],
+  "author": "ProjectMentor AI Team",
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^2.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0"
+  }
+}

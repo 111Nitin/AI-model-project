@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProjectMentor AI — From your skills to a project you can actually build</title>
+  <meta name="description" content="AI-powered mentor for final-year engineering students that turns your skills, interests, and constraints into practical, high-impact final year projects, blueprints, skill gaps, roadmaps, and reality checks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Navigation Header -->
+  <header class="app-header" role="banner">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-logo" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">ProjectMentor <span class="accent-text">AI</span></h1>
+          <p class="brand-tagline">From your skills to a project you can actually build.</p>
+        </div>
+      </div>
+
+      <!-- Engine Status Badge -->
+      <div class="header-meta">
+        <div id="engine-status-badge" class="status-badge" role="status" aria-live="polite">
+          <span class="status-indicator"></span>
+          <span id="engine-status-text">Detecting Intelligence Layer...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="app-nav" aria-label="Main Navigation">
+      <div class="nav-container">
+        <button type="button" class="nav-tab active" data-tab="dashboard" id="tab-dashboard" aria-controls="view-dashboard" aria-selected="true" role="tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Dashboard
+        </button>
+        <button type="button" class="nav-tab" data-tab="ideas" id="tab-ideas" aria-controls="view-ideas" aria-selected="false" role="tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"></path><line x1="10" y1="22" x2="14" y2="22"></line></svg>
+          Generate Ideas
+        </button>
+        <button type="button" class="nav-tab" data-tab="blueprint" id="tab-blueprint" aria-controls="view-blueprint" aria-selected="false" role="tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          My Projects & Blueprint
+        </button>
+        <button type="button" class="nav-tab" data-tab="roadmap" id="tab-roadmap" aria-controls="view-roadmap" aria-selected="false" role="tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Skill Gap & Roadmap
+        </button>
+        <button type="button" class="nav-tab highlight-tab" data-tab="reality" id="tab-reality" aria-controls="view-reality" aria-selected="false" role="tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          Project Reality Check
+        </button>
+        <button type="button" class="nav-tab" data-tab="improve" id="tab-improve" aria-controls="view-improve" aria-selected="false" role="tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          Project Improvement
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Application Content Area -->
+  <main id="main-content" class="app-main" role="main">
+    
+    <!-- 1. DASHBOARD VIEW -->
+    <section id="view-dashboard" class="app-view active" role="tabpanel" aria-labelledby="tab-dashboard">
+      <div class="hero-card">
+        <div class="hero-content">
+          <div class="hero-badge">AI Academic Mentor for Final-Year Engineers</div>
+          <h2 class="hero-title">Turn your skills and interests into a <span class="gradient-text">practical project</span> you can actually finish.</h2>
+          <p class="hero-desc">
+            80% of final-year students pick overly ambitious ideas that collapse at viva time, or generic clone projects that fail to impress evaluators.
+            ProjectMentor AI acts as your senior technical guide—validating your technical baseline, discovering bounded practical projects, generating step-by-step blueprints, identifying skill gaps, and running a critical reality check on your scope.
+          </p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary btn-lg" id="btn-start-generator">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Start Project Journey
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" id="btn-dashboard-reality">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Reality Check Existing Idea
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick-Fill Hackathon Demo Box -->
+        <div class="demo-preset-panel">
+          <div class="demo-preset-header">
+            <span class="badge-demo">⚡ 1-Click Hackathon Demos</span>
+            <span class="demo-desc">Instant pre-populated student profiles</span>
+          </div>
+          <div class="preset-buttons-grid">
+            <button type="button" class="preset-btn" data-preset="cse-ai">
+              <strong>CSE • AI/Web • Team of 3</strong>
+              <span>Python, C++, JS, React | 4 Mos</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="it-fullstack">
+              <strong>IT • Full-Stack Cloud • Team of 2</strong>
+              <span>Node.js, Express, PostgreSQL | 3 Mos</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="ece-iot">
+              <strong>ECE • IoT & Smart Systems • Team of 3</strong>
+              <span>C++, Python, MQTT, Sensors | 4 Mos</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="cyber-sec">
+              <strong>Cybersecurity • Zero-Trust • Solo</strong>
+              <span>Python, Docker, Networking, Linux | 4 Mos</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Complete Guided Workflow Steps -->
+      <div class="section-block">
+        <h3 class="section-title">The Student Project Lifecycle</h3>
+        <p class="section-subtitle">How ProjectMentor AI guides your capstone from concept to viva defense</p>
+
+        <div class="lifecycle-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h4>Skills & Interests</h4>
+            <p>Input your branch, current tools, team capacity, and semester duration.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h4>Tailored Ideas</h4>
+            <p>Gemini crafts 3–4 practical, non-generic project ideas with feasibility scoring.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h4>Compare & Select</h4>
+            <p>Evaluate trade-offs and see why a specific project is the recommended pick.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">04</div>
+            <h4>18-Part Blueprint</h4>
+            <p>Complete architecture, schema, APIs, MVP features, and risk mitigations.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">05</div>
+            <h4>Skill Gap & Order</h4>
+            <p>Pinpoint missing tools with realistic study hours and prerequisite order.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">06</div>
+            <h4>9-Phase Roadmap</h4>
+            <p>Track progress from requirement analysis to final university viva presentation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. GENERATE IDEAS VIEW (Student Profile + Idea Generator) -->
+    <section id="view-ideas" class="app-view" role="tabpanel" aria-labelledby="tab-ideas">
+      <div class="view-header">
+        <div>
+          <h2 class="view-title">Student Profile & Idea Generator</h2>
+          <p class="view-desc">Tell us about your team and capabilities so our AI can generate realistic, achievable projects.</p>
+        </div>
+        <div class="quick-preset-bar">
+          <span class="label-muted">Quick Presets:</span>
+          <button type="button" class="btn btn-sm btn-outline preset-btn" data-preset="cse-ai">CSE AI/Web</button>
+          <button type="button" class="btn btn-sm btn-outline preset-btn" data-preset="it-fullstack">IT Fullstack</button>
+          <button type="button" class="btn btn-sm btn-outline preset-btn" data-preset="ece-iot">ECE IoT</button>
+        </div>
+      </div>
+
+      <div class="two-column-layout">
+        <!-- Student Profile Form -->
+        <div class="panel-card form-panel">
+          <h3 class="panel-heading">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            Student Academic Profile
+          </h3>
+
+          <form id="profile-form" novalidate>
+            <!-- Branch/Course -->
+            <div class="form-group">
+              <label for="prof-branch" class="form-label">
+                Branch / Degree Course <span class="required" aria-hidden="true">*</span>
+              </label>
+              <input type="text" id="prof-branch" name="branch" class="form-control" placeholder="e.g. Computer Science & Engineering, IT, ECE" required>
+              <span class="field-error" id="error-branch" role="alert"></span>
+            </div>
+
+            <!-- Technical Skills (Tags / Comma Separated) -->
+            <div class="form-group">
+              <label for="prof-skills" class="form-label">
+                Current Technical Skills <span class="required" aria-hidden="true">*</span>
+                <span class="field-hint">(Languages, frameworks, databases, tools)</span>
+              </label>
+              <input type="text" id="prof-skills" name="skills" class="form-control" placeholder="e.g. Python, C++, JavaScript, React, SQL" required>
+              <div class="chips-row" id="skills-chips" aria-label="Suggested skills to click">
+                <button type="button" class="chip-btn" data-add-skill="Python">+ Python</button>
+                <button type="button" class="chip-btn" data-add-skill="JavaScript">+ JavaScript</button>
+                <button type="button" class="chip-btn" data-add-skill="C++">+ C++</button>
+                <button type="button" class="chip-btn" data-add-skill="React">+ React</button>
+                <button type="button" class="chip-btn" data-add-skill="Node.js">+ Node.js</button>
+                <button type="button" class="chip-btn" data-add-skill="SQL">+ SQL</button>
+                <button type="button" class="chip-btn" data-add-skill="Docker">+ Docker</button>
+              </div>
+              <span class="field-error" id="error-skills" role="alert"></span>
+            </div>
+
+            <!-- Areas of Interest -->
+            <div class="form-group">
+              <label for="prof-interests" class="form-label">
+                Areas of Interest / Domain <span class="required" aria-hidden="true">*</span>
+              </label>
+              <input type="text" id="prof-interests" name="interests" class="form-control" placeholder="e.g. Artificial Intelligence, Healthcare Tech, FinTech, Cybersecurity" required>
+              <span class="field-error" id="error-interests" role="alert"></span>
+            </div>
+
+            <!-- Grid of Constraints -->
+            <div class="form-row-grid">
+              <!-- Skill Level -->
+              <div class="form-group">
+                <label for="prof-level" class="form-label">Skill Level</label>
+                <select id="prof-level" name="skillLevel" class="form-control">
+                  <option value="Beginner">Beginner (Foundations)</option>
+                  <option value="Intermediate" selected>Intermediate (Built small projects)</option>
+                  <option value="Advanced">Advanced (Production / Internships)</option>
+                </select>
+              </div>
+
+              <!-- Team Size -->
+              <div class="form-group">
+                <label for="prof-team-size" class="form-label">
+                  Team Size: <span id="team-size-val" class="badge-accent">3 Members</span>
+                </label>
+                <input type="range" id="prof-team-size" name="teamSize" min="1" max="6" value="3" class="form-range">
+                <div class="range-labels" aria-hidden="true">
+                  <span>Solo</span>
+                  <span>Pair</span>
+                  <span>3</span>
+                  <span>4</span>
+                  <span>5+</span>
+                </div>
+              </div>
+
+              <!-- Available Development Time -->
+              <div class="form-group">
+                <label for="prof-time" class="form-label">Available Time</label>
+                <select id="prof-time" name="availableTime" class="form-control">
+                  <option value="1 month">1 Month (Sprint / Mini-Project)</option>
+                  <option value="2 months">2 Months (Intensive)</option>
+                  <option value="3 months">3 Months</option>
+                  <option value="4 months" selected>4 Months (Standard Semester)</option>
+                  <option value="6 months">6 Months (Two-Semester Capstone)</option>
+                </select>
+              </div>
+
+              <!-- Preferred Difficulty -->
+              <div class="form-group">
+                <label for="prof-difficulty" class="form-label">Target Difficulty</label>
+                <select id="prof-difficulty" name="preferredDifficulty" class="form-control">
+                  <option value="Easy">Easy (Guaranteed Completion)</option>
+                  <option value="Medium" selected>Medium (Optimal Academic Sweetspot)</option>
+                  <option value="Hard">Hard (Research / High Distinction)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Project Goal -->
+            <div class="form-group">
+              <label for="prof-goal" class="form-label">Primary Project Goal</label>
+              <select id="prof-goal" name="projectGoal" class="form-control">
+                <option value="Portfolio / Placements" selected>Job Placement / Interview Portfolio (High hiring appeal)</option>
+                <option value="Research Paper">Publish a Research Paper (Novel algorithm / benchmarking)</option>
+                <option value="Startup / Commercial MVP">Startup MVP (Customer traction / prototype)</option>
+                <option value="Academic Honors / Final Grade">Academic Grade (Strict syllabus & syllabus alignment)</option>
+              </select>
+            </div>
+
+            <!-- Submit CTA -->
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn-submit-generate">
+              <span class="btn-spinner hidden" id="gen-spinner" aria-hidden="true"></span>
+              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span>Generate My Projects</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Generated Ideas Result Column -->
+        <div class="panel-card ideas-panel">
+          <div class="panel-header-flex">
+            <h3 class="panel-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              Personalized Recommendations
+            </h3>
+            <button type="button" class="btn btn-sm btn-secondary hidden" id="btn-compare-ideas-top">
+              Compare Ideas Side-by-Side
+            </button>
+          </div>
+
+          <!-- Empty State -->
+          <div id="ideas-empty-state" class="empty-state">
+            <div class="empty-icon" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
+            <h4>No project ideas generated yet</h4>
+            <p>Fill in your profile on the left or click one of our 1-Click Quick Presets to let ProjectMentor AI generate personalized ideas.</p>
+          </div>
+
+          <!-- Loading Skeleton Screen -->
+          <div id="ideas-loading-skeleton" class="skeleton-container hidden" aria-hidden="true">
+            <div class="skeleton-card">
+              <div class="skeleton-line line-title"></div>
+              <div class="skeleton-line line-p"></div>
+              <div class="skeleton-line line-p"></div>
+              <div class="skeleton-tags"></div>
+            </div>
+            <div class="skeleton-card">
+              <div class="skeleton-line line-title"></div>
+              <div class="skeleton-line line-p"></div>
+              <div class="skeleton-line line-p"></div>
+              <div class="skeleton-tags"></div>
+            </div>
+          </div>
+
+          <!-- Ideas Cards Container -->
+          <div id="ideas-list" class="ideas-grid"></div>
+
+          <!-- Bottom Action Bar -->
+          <div id="ideas-footer-action" class="ideas-footer hidden">
+            <button type="button" class="btn btn-secondary btn-block" id="btn-compare-ideas-bottom">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              Compare All Generated Ideas & View Recommended Pick
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MY PROJECTS & BLUEPRINT VIEW (Comparison + 18-part Blueprint) -->
+    <section id="view-blueprint" class="app-view" role="tabpanel" aria-labelledby="tab-blueprint">
+      <!-- Comparative Matrix Section -->
+      <div class="blueprint-section" id="comparison-section">
+        <div class="view-header">
+          <div>
+            <h2 class="view-title">Project Comparison & Selection</h2>
+            <p class="view-desc">Objective multi-factor evaluation of your generated projects to pick the winning capstone.</p>
+          </div>
+        </div>
+
+        <!-- Recommended Project Banner -->
+        <div id="recommendation-banner" class="recommendation-banner hidden">
+          <div class="rec-badge-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          </div>
+          <div class="rec-content">
+            <span class="badge-rec">⭐ Official AI Mentor Recommendation</span>
+            <h3 id="rec-project-title" class="rec-title"></h3>
+            <p id="rec-project-rationale" class="rec-rationale"></p>
+          </div>
+        </div>
+
+        <!-- Comparison Table Container -->
+        <div class="panel-card table-responsive" id="comparison-table-wrap">
+          <table class="comparison-table" id="comparison-table" aria-label="Project ideas comparison table">
+            <thead>
+              <tr>
+                <th scope="col">Candidate Project</th>
+                <th scope="col">Difficulty</th>
+                <th scope="col">Estimated Time</th>
+                <th scope="col">Skill Synergy</th>
+                <th scope="col">Feasibility</th>
+                <th scope="col">Innovation</th>
+                <th scope="col">Overall Match</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="comparison-tbody">
+              <tr>
+                <td colspan="8" class="text-center text-muted">Generate ideas first to activate comparison matrix.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Comprehensive 18-Part Blueprint Display -->
+      <div class="blueprint-section" id="blueprint-display-section">
+        <div class="view-header">
+          <div>
+            <h2 class="view-title">Comprehensive Project Blueprint</h2>
+            <p class="view-desc">18-part production-grade architectural specification for your chosen final-year project.</p>
+          </div>
+          <div class="blueprint-actions">
+            <button type="button" class="btn btn-sm btn-outline" id="btn-export-markdown">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Export Blueprint (.md)
+            </button>
+            <button type="button" class="btn btn-sm btn-outline" id="btn-print-blueprint">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print / Save PDF
+            </button>
+          </div>
+        </div>
+
+        <div id="blueprint-empty" class="empty-state">
+          <h4>No Project Selected Yet</h4>
+          <p>Choose an idea from the Ideas tab or comparison table above and click "Select & Generate Blueprint".</p>
+        </div>
+
+        <div id="blueprint-content" class="blueprint-content hidden">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SKILL GAP & ROADMAP VIEW -->
+    <section id="view-roadmap" class="app-view" role="tabpanel" aria-labelledby="tab-roadmap">
+      <div class="view-header">
+        <div>
+          <h2 class="view-title">Skill Gap Analyzer & Adaptive Roadmap</h2>
+          <p class="view-desc">Identify what you know, what you need to learn, and track step-by-step progress week by week.</p>
+        </div>
+        <div class="roadmap-meta">
+          <span class="meta-pill" id="roadmap-duration-tag">Timeline: 4 Months (16 Weeks)</span>
+          <span class="meta-pill" id="roadmap-team-tag">Team: 3 Developers</span>
+        </div>
+      </div>
+
+      <div class="two-column-layout">
+        <!-- Skill Gap Analysis Panel -->
+        <div class="panel-card">
+          <h3 class="panel-heading">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+            Skill Readiness Breakdown
+          </h3>
+
+          <div id="skill-gap-summary" class="readiness-banner">
+            <div class="readiness-meter">
+              <span id="readiness-percent" class="readiness-number">0%</span>
+              <span class="readiness-label">Team Readiness</span>
+            </div>
+            <div class="readiness-text">
+              <h4 id="readiness-heading">Generate a project to see your skill gap</h4>
+              <p id="readiness-desc">We will cross-reference your profile skills against project requirements.</p>
+            </div>
+          </div>
+
+          <!-- Known Skills -->
+          <div class="skill-category">
+            <h4 class="category-title text-success">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Skills Already Known
+            </h4>
+            <div id="known-skills-tags" class="tags-container">
+              <span class="tag tag-muted">None specified yet</span>
+            </div>
+          </div>
+
+          <!-- Missing Skills with Priority & Hours -->
+          <div class="skill-category">
+            <h4 class="category-title text-warning">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              Gaps to Learn (Ordered by Prerequisite)
+            </h4>
+            <div id="missing-skills-list" class="learning-order-list">
+              <div class="empty-notice">No missing skills calculated yet.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9-Phase Development Roadmap Panel -->
+        <div class="panel-card">
+          <div class="panel-header-flex">
+            <h3 class="panel-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Step-by-Step 9-Phase Development Roadmap
+            </h3>
+            <div class="progress-indicator">
+              <span id="roadmap-completed-text">0/9 Phases Complete</span>
+            </div>
+          </div>
+
+          <!-- Roadmap Phases Accordion / Timeline -->
+          <div id="roadmap-timeline" class="roadmap-timeline">
+            <!-- Populated dynamically via JS -->
+            <div class="empty-state">
+              <p>Select a project to generate a tailored 9-phase roadmap.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PROJECT REALITY CHECK VIEW (Standout Feature) -->
+    <section id="view-reality" class="app-view" role="tabpanel" aria-labelledby="tab-reality">
+      <div class="view-header">
+        <div>
+          <h2 class="view-title">Project Reality Check <span class="badge-accent">Standout Audit</span></h2>
+          <p class="view-desc">Already have an existing project idea? Paste it here for an honest, senior engineering mentor audit.</p>
+        </div>
+      </div>
+
+      <div class="two-column-layout">
+        <!-- Reality Check Input Form -->
+        <div class="panel-card">
+          <h3 class="panel-heading">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+            Enter Your Proposed Project Idea
+          </h3>
+
+          <form id="reality-form" novalidate>
+            <div class="form-group">
+              <label for="rc-title" class="form-label">Project Title <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="rc-title" name="title" class="form-control" placeholder="e.g. Decentralized AI Social Network with Blockchain Identity" required>
+              <span class="field-error" id="error-rc-title" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="rc-description" class="form-label">Detailed Project Description & Scope <span class="required" aria-hidden="true">*</span></label>
+              <textarea id="rc-description" name="description" rows="5" class="form-control" placeholder="Describe the problem, intended features, tech stack, and user flow as clearly as possible..." required></textarea>
+              <span class="field-error" id="error-rc-desc" role="alert"></span>
+            </div>
+
+            <div class="form-row-grid">
+              <div class="form-group">
+                <label for="rc-team" class="form-label">Team Size</label>
+                <input type="number" id="rc-team" name="teamSize" min="1" max="6" value="3" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="rc-months" class="form-label">Months Available</label>
+                <input type="number" id="rc-months" name="availableMonths" min="1" max="12" value="4" class="form-control">
+              </div>
+            </div>
+
+            <!-- Quick Example Idea Fillers -->
+            <div class="sample-ideas-box">
+              <span class="sample-label">Load Sample Student Submission:</span>
+              <div class="sample-btn-group">
+                <button type="button" class="btn btn-xs btn-outline sample-reality-btn" data-sample="overambitious">
+                  Overambitious (AI+Blockchain+IoT)
+                </button>
+                <button type="button" class="btn btn-xs btn-outline sample-reality-btn" data-sample="solid-mvp">
+                  Balanced (Medical Summarizer)
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn-submit-reality">
+              <span class="btn-spinner hidden" id="rc-spinner" aria-hidden="true"></span>
+              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>Audit This Project</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Reality Check Audit Results Panel -->
+        <div class="panel-card" id="reality-results-panel">
+          <h3 class="panel-heading">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Senior Mentor Audit Verdict
+          </h3>
+
+          <div id="reality-empty" class="empty-state">
+            <h4>No Reality Check Submitted Yet</h4>
+            <p>Paste your project concept on the left and click "Audit This Project" to reveal feasibility scores, scope risks, and what to remove.</p>
+          </div>
+
+          <div id="reality-loading" class="skeleton-container hidden" aria-hidden="true">
+            <div class="skeleton-card">
+              <div class="skeleton-line line-title"></div>
+              <div class="skeleton-line line-p"></div>
+              <div class="skeleton-line line-p"></div>
+            </div>
+          </div>
+
+          <div id="reality-output" class="reality-output hidden">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PROJECT IMPROVEMENT ENGINE VIEW (10 Dimensions) -->
+    <section id="view-improve" class="app-view" role="tabpanel" aria-labelledby="tab-improve">
+      <div class="view-header">
+        <div>
+          <h2 class="view-title">Project Improvement Engine</h2>
+          <p class="view-desc">Ask "How can I improve my project?" and get actionable advice across 10 engineering dimensions.</p>
+        </div>
+      </div>
+
+      <div class="two-column-layout">
+        <!-- Improvement Input Form -->
+        <div class="panel-card">
+          <h3 class="panel-heading">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            Project Details for Enhancement
+          </h3>
+
+          <form id="improve-form" novalidate>
+            <div class="form-group">
+              <label for="imp-title" class="form-label">Project Title</label>
+              <input type="text" id="imp-title" name="title" class="form-control" placeholder="e.g. Student Library & Resource Portal">
+            </div>
+
+            <div class="form-group">
+              <label for="imp-desc" class="form-label">Current Architecture & Features <span class="required" aria-hidden="true">*</span></label>
+              <textarea id="imp-desc" name="description" rows="5" class="form-control" placeholder="Describe what your current project does, how it works, and where you feel it needs an upgrade..." required></textarea>
+              <span class="field-error" id="error-imp-desc" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="imp-stack" class="form-label">Current Tech Stack (comma separated)</label>
+              <input type="text" id="imp-stack" name="currentStack" class="form-control" placeholder="e.g. HTML, CSS, JavaScript, PHP, MySQL">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn-submit-improve">
+              <span class="btn-spinner hidden" id="imp-spinner" aria-hidden="true"></span>
+              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+              <span>Analyze & Generate 10-D Improvements</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Improvement Recommendations Panel -->
+        <div class="panel-card" id="improve-results-panel">
+          <h3 class="panel-heading">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            10-Dimension Enhancement Roadmap
+          </h3>
+
+          <div id="improve-empty" class="empty-state">
+            <h4>No Project Submitted for Improvement Yet</h4>
+            <p>Describe your existing project on the left to receive customized enhancements across UX, Security, AI/ML, Testing, and Scalability.</p>
+          </div>
+
+          <div id="improve-loading" class="skeleton-container hidden" aria-hidden="true">
+            <div class="skeleton-card">
+              <div class="skeleton-line line-title"></div>
+              <div class="skeleton-line line-p"></div>
+              <div class="skeleton-line line-p"></div>
+            </div>
+          </div>
+
+          <div id="improve-output" class="improve-output hidden">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Application Toast Notifications Container -->
+  <div id="toast-container" class="toast-container" aria-live="assertive" aria-atomic="true"></div>
+
+  <!-- Accessible Modal Dialog for Project Details / Confirmations -->
+  <dialog id="app-modal" class="app-modal" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-title">Modal Title</h3>
+        <button type="button" class="modal-close-btn" id="modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-footer" id="modal-footer">
+        <button type="button" class="btn btn-secondary" id="modal-cancel">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Application Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
