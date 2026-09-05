@@ -286,5 +286,3 @@ For a quick hackathon presentation:
    - Click **"Overambitious (AI+Blockchain+IoT)"** sample button and click **"Audit This Project"**.
    - Watch the AI identify scope bloat, risks, features to cut, features to add, and the exact recommended MVP.
    - Conclude: ProjectMentor AI guides engineering students from initial confusion to a project they can build and defend with pride.
-#   A I - m o d e l - p r o j e c t  
- 
